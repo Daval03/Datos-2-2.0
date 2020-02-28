@@ -52,11 +52,15 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../T01-Server/main.cpp \
+SOURCES       = ../T01-Server/csvreader.cpp \
+		../T01-Server/graph.cpp \
+		../T01-Server/main.cpp \
 		../T01-Server/server.cpp \
 		../T01-Server/widget.cpp moc_server.cpp \
 		moc_widget.cpp
-OBJECTS       = main.o \
+OBJECTS       = csvreader.o \
+		graph.o \
+		main.o \
 		server.o \
 		widget.o \
 		moc_server.o \
@@ -237,6 +241,7 @@ DIST          = ../../../../Qt/5.13.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/spec_post.prf \
+		../T01-Server/.qmake.stash \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -256,8 +261,12 @@ DIST          = ../../../../Qt/5.13.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/exceptions.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/lex.prf \
-		../T01-Server/T01-Server.pro ../T01-Server/server.h \
-		../T01-Server/widget.h ../T01-Server/main.cpp \
+		../T01-Server/T01-Server.pro ../T01-Server/csvreader.h \
+		../T01-Server/graph.h \
+		../T01-Server/server.h \
+		../T01-Server/widget.h ../T01-Server/csvreader.cpp \
+		../T01-Server/graph.cpp \
+		../T01-Server/main.cpp \
 		../T01-Server/server.cpp \
 		../T01-Server/widget.cpp
 QMAKE_TARGET  = T01-Server
@@ -447,6 +456,7 @@ Makefile: ../T01-Server/T01-Server.pro ../../../../Qt/5.13.0/gcc_64/mkspecs/linu
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.13.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -644,6 +654,7 @@ Makefile: ../T01-Server/T01-Server.pro ../../../../Qt/5.13.0/gcc_64/mkspecs/linu
 ../../../../Qt/5.13.0/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.13.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt/5.13.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.13.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.13.0/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.13.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -679,8 +690,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.13.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../T01-Server/server.h ../T01-Server/widget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../T01-Server/main.cpp ../T01-Server/server.cpp ../T01-Server/widget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../T01-Server/csvreader.h ../T01-Server/graph.h ../T01-Server/server.h ../T01-Server/widget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../T01-Server/csvreader.cpp ../T01-Server/graph.cpp ../T01-Server/main.cpp ../T01-Server/server.cpp ../T01-Server/widget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../T01-Server/widget.ui $(DISTDIR)/
 
 
@@ -894,6 +905,18 @@ moc_widget.cpp: ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpSocket \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpsocket.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qabstractsocket.h \
+		../T01-Server/server.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpServer \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpserver.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
 		moc_predefs.h \
 		../../../../Qt/5.13.0/gcc_64/bin/moc
 	/home/aldo/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /home/aldo/Escritorio/Datos-2/T01/build-T01-Server-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/aldo/Qt/5.13.0/gcc_64/mkspecs/linux-g++ -I/home/aldo/Escritorio/Datos-2/T01/T01-Server -I/home/aldo/Qt/5.13.0/gcc_64/include -I/home/aldo/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/aldo/Qt/5.13.0/gcc_64/include/QtGui -I/home/aldo/Qt/5.13.0/gcc_64/include/QtNetwork -I/home/aldo/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../T01-Server/widget.h -o moc_widget.cpp
@@ -918,6 +941,12 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+csvreader.o: ../T01-Server/csvreader.cpp ../T01-Server/csvreader.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o csvreader.o ../T01-Server/csvreader.cpp
+
+graph.o: ../T01-Server/graph.cpp ../T01-Server/graph.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o graph.o ../T01-Server/graph.cpp
 
 main.o: ../T01-Server/main.cpp ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QWidget \
@@ -1023,13 +1052,27 @@ main.o: ../T01-Server/main.cpp ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpSocket \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpsocket.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qabstractsocket.h \
+		../T01-Server/server.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpServer \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpserver.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
+		../T01-Server/algoritmo_dijkstra.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qcoreapplication.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qeventloop.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt/5.13.0/gcc_64/include/QtGui/qinputmethod.h
+		../../../../Qt/5.13.0/gcc_64/include/QtGui/qinputmethod.h \
+		../T01-Server/csvreader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../T01-Server/main.cpp
 
 server.o: ../T01-Server/server.cpp ../T01-Server/server.h \
@@ -1219,7 +1262,44 @@ widget.o: ../T01-Server/widget.cpp ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_widget.h
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QMessageBox \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpSocket \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpsocket.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qabstractsocket.h \
+		../T01-Server/server.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpServer \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpserver.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
+		ui_widget.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QVariant \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QApplication \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QGridLayout \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QSpinBox \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qspinbox.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtGui/qvalidator.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qregularexpression.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../T01-Server/widget.cpp
 
 moc_server.o: moc_server.cpp 

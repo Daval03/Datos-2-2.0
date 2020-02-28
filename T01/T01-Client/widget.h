@@ -24,7 +24,6 @@ private slots:
     void on_Run_clicked();
 
 private:
-    bool connected;
     Ui::Widget *ui;
     QTcpSocket *mSocket;
 };

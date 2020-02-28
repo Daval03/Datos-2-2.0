@@ -6,11 +6,6 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
     mSocket=new QTcpSocket(this);
     connect(mSocket,&QTcpSocket::readyRead,[&](){//conectar el socket al server que esta listo
-        QString str = mSocket->readAll();
-        QJsonDocument jsonResponse = QJsonDocument::fromJson(str.toLatin1());
-        QJsonArray jsonArray = jsonResponse.array();
-        QJsonObject jsonObject = jsonArray.first().toObject();
-
     });
 }
 Widget::~Widget(){
@@ -29,7 +24,12 @@ void Widget::on_Conectar_clicked(){
 void Widget::on_Quitar_clicked(){
     close();
 }
-
 void Widget::on_Run_clicked(){
-
+    QJsonObject Lista{
+        {"Started-Flag","True"}};
+    QJsonArray jsarray {Lista};
+    QJsonDocument jsDoc(jsarray);
+    QString jsString = QString::fromLatin1(jsDoc.toJson());
+    qDebug()<<jsDoc;
+    mSocket->write(jsString.toLatin1());
 }

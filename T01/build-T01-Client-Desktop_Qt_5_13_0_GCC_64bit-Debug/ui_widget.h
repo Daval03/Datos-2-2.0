@@ -11,11 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QWidget>
@@ -25,87 +23,74 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
-    QGridLayout *gridLayout;
-    QListWidget *listWidget;
-    QHBoxLayout *horizontalLayout_4;
-    QHBoxLayout *horizontalLayout_2;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
     QSpinBox *Puerto;
-    QGridLayout *gridLayout_2;
     QLabel *label;
     QLineEdit *Nservidor;
-    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *horizontalLayout_2;
     QPushButton *Conectar;
     QPushButton *Quitar;
+    QPushButton *Run;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
-        Widget->resize(571, 493);
-        gridLayout = new QGridLayout(Widget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        listWidget = new QListWidget(Widget);
-        listWidget->setObjectName(QString::fromUtf8("listWidget"));
-
-        gridLayout->addWidget(listWidget, 0, 0, 1, 1);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        Widget->resize(683, 493);
+        widget = new QWidget(Widget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(20, 440, 625, 30));
+        horizontalLayout_3 = new QHBoxLayout(widget);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label_2 = new QLabel(Widget);
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         horizontalLayout->addWidget(label_2);
 
-        Puerto = new QSpinBox(Widget);
+        Puerto = new QSpinBox(widget);
         Puerto->setObjectName(QString::fromUtf8("Puerto"));
         Puerto->setMaximum(999999999);
 
         horizontalLayout->addWidget(Puerto);
 
-
-        horizontalLayout_2->addLayout(horizontalLayout);
-
-        gridLayout_2 = new QGridLayout();
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        label = new QLabel(Widget);
+        label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
 
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+        horizontalLayout->addWidget(label);
 
-        Nservidor = new QLineEdit(Widget);
+        Nservidor = new QLineEdit(widget);
         Nservidor->setObjectName(QString::fromUtf8("Nservidor"));
 
-        gridLayout_2->addWidget(Nservidor, 0, 1, 1, 1);
+        horizontalLayout->addWidget(Nservidor);
 
 
-        horizontalLayout_2->addLayout(gridLayout_2);
+        horizontalLayout_3->addLayout(horizontalLayout);
 
-
-        horizontalLayout_4->addLayout(horizontalLayout_2);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        Conectar = new QPushButton(Widget);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        Conectar = new QPushButton(widget);
         Conectar->setObjectName(QString::fromUtf8("Conectar"));
 
-        horizontalLayout_3->addWidget(Conectar);
+        horizontalLayout_2->addWidget(Conectar);
 
-        Quitar = new QPushButton(Widget);
+        Quitar = new QPushButton(widget);
         Quitar->setObjectName(QString::fromUtf8("Quitar"));
 
-        horizontalLayout_3->addWidget(Quitar);
+        horizontalLayout_2->addWidget(Quitar);
+
+        Run = new QPushButton(widget);
+        Run->setObjectName(QString::fromUtf8("Run"));
+
+        horizontalLayout_2->addWidget(Run);
 
 
-        horizontalLayout_4->addLayout(horizontalLayout_3);
-
-
-        gridLayout->addLayout(horizontalLayout_4, 1, 0, 1, 1);
+        horizontalLayout_3->addLayout(horizontalLayout_2);
 
 
         retranslateUi(Widget);
@@ -120,6 +105,7 @@ public:
         label->setText(QCoreApplication::translate("Widget", "Server:", nullptr));
         Conectar->setText(QCoreApplication::translate("Widget", "Conectar", nullptr));
         Quitar->setText(QCoreApplication::translate("Widget", "Quitar", nullptr));
+        Run->setText(QCoreApplication::translate("Widget", "Run", nullptr));
     } // retranslateUi
 
 };

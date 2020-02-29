@@ -1,2 +1,2 @@
 # Datos-2
-Perro se me olvido ponerle documentacion
+Tarea 1 terminada, solo falta pulir detalles estéticos y limpiar un poco el codigo 

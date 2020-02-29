@@ -14,8 +14,8 @@ public:
     ~Widget();
 
 private slots:
-    void on_Iniciar_clicked();
-    void on_Detener_clicked();
+//    void on_Iniciar_clicked();
+//    void on_Detener_clicked();
 private:
     Server *mServer;
     QTcpSocket *mSocket;

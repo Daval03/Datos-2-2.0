@@ -3,8 +3,8 @@ Graph::Graph(int V) {
     this->V=V;
     adj=new list<pair<int,int>>[V];
 }
-void Graph::setDatos(int v) {
-    this->V=v;
+void Graph::setDatos(int V) {
+    this->V=V;
     adj=new list<pair<int,int>>[V];
 }
 Graph::Graph() {}
@@ -12,7 +12,7 @@ void Graph::addEdge(int u, int v, int w) {
     adj[u].push_back(make_pair(v,w));
     adj[v].push_back(make_pair(u,w));
 }
-void Graph::Dijkstra(int src) {
+string Graph::Dijkstra(int src) {
     set< pair<int, int> > setds;
     vector<int> dist(V, INF);
     setds.insert(make_pair(0, src));
@@ -32,8 +32,10 @@ void Graph::Dijkstra(int src) {
                 setds.insert(make_pair(dist[v], v));
             }
         }
-    }
-    printf("Vertex   Distance from Source\n");
-    for (int i = 0; i < V; ++i)
-        printf("%d \t\t %d\n", i, dist[i]);
+    }for(int i=0;i<V;i++){
+        string valor=to_string(dist[i]);
+        if((i+1)!=V){
+            valor+=",";
+        }respuesta+=valor;
+    }return respuesta;
 }

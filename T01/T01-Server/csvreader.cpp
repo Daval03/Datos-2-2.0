@@ -2,7 +2,7 @@
 CSVReader::CSVReader(string filename) {
     this->fileName=filename;
 }
-string CSVReader::sacarDatos(){
+void CSVReader::cargarGrafo(){
     ifstream file(fileName);
     string line = "";
     int i=0;
@@ -25,4 +25,8 @@ string CSVReader::sacarDatos(){
             free(vect);
         }i++;
     }file.close();
+}
+void CSVReader::descargarGrafo(){
+    this->grafo->V=0;
+    this->grafo->respuesta="";
 }

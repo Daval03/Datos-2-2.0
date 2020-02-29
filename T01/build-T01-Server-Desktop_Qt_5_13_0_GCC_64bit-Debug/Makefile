@@ -797,6 +797,19 @@ moc_server.cpp: ../T01-Server/server.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
+		../T01-Server/csvreader.h \
+		../T01-Server/graph.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpSocket \
+		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpsocket.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonDocument \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsondocument.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonvalue.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonObject \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonobject.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonArray \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonarray.h \
 		moc_predefs.h \
 		../../../../Qt/5.13.0/gcc_64/bin/moc
 	/home/aldo/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /home/aldo/Escritorio/Datos-2/T01/build-T01-Server-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/aldo/Qt/5.13.0/gcc_64/mkspecs/linux-g++ -I/home/aldo/Escritorio/Datos-2/T01/T01-Server -I/home/aldo/Qt/5.13.0/gcc_64/include -I/home/aldo/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/aldo/Qt/5.13.0/gcc_64/include/QtGui -I/home/aldo/Qt/5.13.0/gcc_64/include/QtNetwork -I/home/aldo/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../T01-Server/server.h -o moc_server.cpp
@@ -917,6 +930,17 @@ moc_widget.cpp: ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpServer \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpserver.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
+		../T01-Server/csvreader.h \
+		../T01-Server/graph.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonDocument \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsondocument.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonvalue.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonObject \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonobject.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonArray \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonarray.h \
 		moc_predefs.h \
 		../../../../Qt/5.13.0/gcc_64/bin/moc
 	/home/aldo/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /home/aldo/Escritorio/Datos-2/T01/build-T01-Server-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/aldo/Qt/5.13.0/gcc_64/mkspecs/linux-g++ -I/home/aldo/Escritorio/Datos-2/T01/T01-Server -I/home/aldo/Qt/5.13.0/gcc_64/include -I/home/aldo/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/aldo/Qt/5.13.0/gcc_64/include/QtGui -I/home/aldo/Qt/5.13.0/gcc_64/include/QtNetwork -I/home/aldo/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../T01-Server/widget.h -o moc_widget.cpp
@@ -942,7 +966,8 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-csvreader.o: ../T01-Server/csvreader.cpp ../T01-Server/csvreader.h
+csvreader.o: ../T01-Server/csvreader.cpp ../T01-Server/csvreader.h \
+		../T01-Server/graph.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o csvreader.o ../T01-Server/csvreader.cpp
 
 graph.o: ../T01-Server/graph.cpp ../T01-Server/graph.h
@@ -1064,6 +1089,17 @@ main.o: ../T01-Server/main.cpp ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpServer \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpserver.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
+		../T01-Server/csvreader.h \
+		../T01-Server/graph.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonDocument \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsondocument.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonvalue.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonObject \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonobject.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonArray \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonarray.h \
 		../T01-Server/algoritmo_dijkstra.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qapplication.h \
@@ -1071,8 +1107,7 @@ main.o: ../T01-Server/main.cpp ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qeventloop.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt/5.13.0/gcc_64/include/QtGui/qinputmethod.h \
-		../T01-Server/csvreader.h
+		../../../../Qt/5.13.0/gcc_64/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../T01-Server/main.cpp
 
 server.o: ../T01-Server/server.cpp ../T01-Server/server.h \
@@ -1145,6 +1180,8 @@ server.o: ../T01-Server/server.cpp ../T01-Server/server.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
+		../T01-Server/csvreader.h \
+		../T01-Server/graph.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpSocket \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpsocket.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/QDebug \
@@ -1274,6 +1311,17 @@ widget.o: ../T01-Server/widget.cpp ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/QTcpServer \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qtcpserver.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtNetwork/qhostaddress.h \
+		../T01-Server/csvreader.h \
+		../T01-Server/graph.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonDocument \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsondocument.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonvalue.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonObject \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonobject.h \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonArray \
+		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonarray.h \
 		ui_widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/QVariant \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QApplication \

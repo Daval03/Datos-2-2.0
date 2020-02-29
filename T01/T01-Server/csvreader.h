@@ -11,7 +11,8 @@ using namespace std;
 class CSVReader{
 public:
     Graph *grafo=new Graph;
-    string sacarDatos();
+    void cargarGrafo();
+    void descargarGrafo();
     CSVReader(string filename);
 private:
     string fileName;

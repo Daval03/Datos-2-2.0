@@ -30,6 +30,14 @@ public:
     explicit Server(QObject *parent = nullptr);
 private:
     /**
+     * @brief respuesta las rutas mas cortas que nos da el grafo
+     */
+    QString respuesta="";
+    /**
+     * @brief compVertice Vertice que se usara de referencia para calcular las rutas mas cortas
+     */
+    int compVertice;
+    /**
      * @brief reader, me genera el grafo y el algoritmo
      * @param La ruta del txt, donde esta el grafo
      * @return las rutas mas cortas

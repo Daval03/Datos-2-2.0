@@ -13,29 +13,40 @@
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <widget class="QListWidget" name="cuadro"/>
    </item>
    <item row="1" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="Quitar">
+        <widget class="QLabel" name="label">
          <property name="text">
-          <string>Quitar</string>
+          <string>Vertice para calcular 
+ la ruta mas corta</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="Run">
-         <property name="text">
-          <string>Run</string>
-         </property>
-        </widget>
+        <widget class="QSpinBox" name="NVertice"/>
        </item>
       </layout>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="Run">
+       <property name="text">
+        <string>Run</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="Quitar">
+       <property name="text">
+        <string>Quitar</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

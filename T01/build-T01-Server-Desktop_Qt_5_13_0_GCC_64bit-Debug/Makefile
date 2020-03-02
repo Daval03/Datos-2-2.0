@@ -1100,7 +1100,6 @@ main.o: ../T01-Server/main.cpp ../T01-Server/widget.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonobject.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/QJsonArray \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qjsonarray.h \
-		../T01-Server/algoritmo_dijkstra.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt/5.13.0/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Qt/5.13.0/gcc_64/include/QtCore/qcoreapplication.h \

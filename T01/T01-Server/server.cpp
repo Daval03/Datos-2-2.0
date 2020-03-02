@@ -13,12 +13,13 @@ Server::Server(QObject *parent) : QTcpServer(parent){
             QJsonDocument jsonResponse = QJsonDocument::fromJson(str.toLatin1());
             QJsonArray jsonArray = jsonResponse.array();
             QJsonObject jsonObject = jsonArray.first().toObject();
-
+            compVertice=jsonObject.value("CompVertice").toInt();
             reader->cargarGrafo();
-            QString resultados=QString::fromStdString(reader->grafo->Dijkstra(0));
-
+            if(compVertice < reader->grafo->V){
+                respuesta=QString::fromStdString(reader->grafo->Dijkstra(compVertice));
+            }
             QJsonObject Lista{
-                {"Resultados",resultados},
+                {"Resultados",respuesta},
                 {"Vertices",reader->grafo->V}
             };
             reader->descargarGrafo();

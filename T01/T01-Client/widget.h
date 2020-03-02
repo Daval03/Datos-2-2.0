@@ -42,16 +42,16 @@ private:
      * @brief V, numero de vertices
      * @brief i, numero para imprimir las rutas
      */
-    int V,i;
+    int V,i,compVertice;
     /**
-     * @brief resp, la info del json
+     * @brief resp, la info del json y el vertice de origen que se usara para las comparaciones
      */
     QString resp;
     /**
      * @brief numRuta,ruta,vertice info de interfaz
      */
     string numRuta=" es ";
-    string ruta="ruta 0 -> ";
+    string ruta;
     string vertice="La cantidad de vertices que posee el grafo son: ";
     /**
      * @brief ui, la clase de interfaz
@@ -61,5 +61,6 @@ private:
      * @brief mSocket la clase del socket
      */
     QTcpSocket *mSocket;
+
 };
 #endif // WIDGET_H

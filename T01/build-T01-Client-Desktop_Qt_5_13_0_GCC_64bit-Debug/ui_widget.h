@@ -13,8 +13,10 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,44 +24,56 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
-    QGridLayout *gridLayout;
+    QGridLayout *gridLayout_2;
     QListWidget *cuadro;
-    QHBoxLayout *horizontalLayout_3;
-    QHBoxLayout *horizontalLayout_2;
-    QPushButton *Quitar;
+    QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label;
+    QSpinBox *NVertice;
     QPushButton *Run;
+    QPushButton *Quitar;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
         Widget->resize(683, 493);
-        gridLayout = new QGridLayout(Widget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout_2 = new QGridLayout(Widget);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         cuadro = new QListWidget(Widget);
         cuadro->setObjectName(QString::fromUtf8("cuadro"));
 
-        gridLayout->addWidget(cuadro, 0, 0, 1, 1);
+        gridLayout_2->addWidget(cuadro, 0, 0, 1, 1);
 
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        Quitar = new QPushButton(Widget);
-        Quitar->setObjectName(QString::fromUtf8("Quitar"));
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label = new QLabel(Widget);
+        label->setObjectName(QString::fromUtf8("label"));
 
-        horizontalLayout_2->addWidget(Quitar);
+        horizontalLayout->addWidget(label);
+
+        NVertice = new QSpinBox(Widget);
+        NVertice->setObjectName(QString::fromUtf8("NVertice"));
+
+        horizontalLayout->addWidget(NVertice);
+
+
+        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
 
         Run = new QPushButton(Widget);
         Run->setObjectName(QString::fromUtf8("Run"));
 
-        horizontalLayout_2->addWidget(Run);
+        gridLayout->addWidget(Run, 0, 1, 1, 1);
+
+        Quitar = new QPushButton(Widget);
+        Quitar->setObjectName(QString::fromUtf8("Quitar"));
+
+        gridLayout->addWidget(Quitar, 0, 2, 1, 1);
 
 
-        horizontalLayout_3->addLayout(horizontalLayout_2);
-
-
-        gridLayout->addLayout(horizontalLayout_3, 1, 0, 1, 1);
+        gridLayout_2->addLayout(gridLayout, 1, 0, 1, 1);
 
 
         retranslateUi(Widget);
@@ -70,8 +84,10 @@ public:
     void retranslateUi(QWidget *Widget)
     {
         Widget->setWindowTitle(QCoreApplication::translate("Widget", "Widget", nullptr));
-        Quitar->setText(QCoreApplication::translate("Widget", "Quitar", nullptr));
+        label->setText(QCoreApplication::translate("Widget", "Vertice para calcular \n"
+" la ruta mas corta", nullptr));
         Run->setText(QCoreApplication::translate("Widget", "Run", nullptr));
+        Quitar->setText(QCoreApplication::translate("Widget", "Quitar", nullptr));
     } // retranslateUi
 
 };

@@ -16,9 +16,14 @@ Widget::Widget(QWidget *parent)
         QJsonObject jsonObject = jsonArray.first().toObject();
         resp=jsonObject.value("Resultados").toString();
         V=jsonObject.value("Vertices").toInt();
-        vertice.append(to_string(V));
-        mostrarDatos();
-        reset();
+        if(V<compVertice){
+            ui->cuadro->addItem("Error: El numero de vertice que se ingreso es mayor al del grafo");
+            //QMessageBox::information(this,"Error","El numero de vertice que se ingreso es mayor al del grafo");
+        }else{
+            vertice.append(to_string(V));
+            mostrarDatos();
+            reset();
+        }
     });
 }
 /**
@@ -37,8 +42,11 @@ void Widget::on_Quitar_clicked(){
  * @brief Widget::on_Run_clicked boton para cargar el json y cargarlo en el socket
  */
 void Widget::on_Run_clicked(){
+    compVertice=ui->NVertice->value();
     QJsonObject Lista{
-        {"Started-Flag","True"}};
+        {"Started-Flag","True"},
+        {"CompVertice",compVertice}
+    };
     QJsonArray jsarray {Lista};
     QJsonDocument jsDoc(jsarray);
     QString jsString = QString::fromLatin1(jsDoc.toJson());
@@ -57,6 +65,7 @@ void Widget::reset(){
  * @brief Widget::mostrarDatos muestra las rutas mas cortas en la ui
  */
 void Widget::mostrarDatos(){
+    ruta="ruta "+to_string(compVertice)+" -> ";
     ui->cuadro->addItem(QString::fromStdString(vertice));
     stringstream ss(resp.toStdString());
     this->i=0;
@@ -68,7 +77,7 @@ void Widget::mostrarDatos(){
         ruta.append(numRuta);
         ui->cuadro->addItem(QString::fromStdString(ruta));
         this->numRuta=" es ";
-        this->ruta="ruta 0 -> ";
+        this->ruta="ruta "+to_string(compVertice)+" -> ";
         i++;
-    }
+    }ui->cuadro->addItem("\n");
 }

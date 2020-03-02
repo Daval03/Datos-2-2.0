@@ -87,11 +87,13 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classServer.html">Server</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classCSVReader.html">CSVReader</a> *reader=<span class="keyword">new</span> <a class="code" href="classCSVReader.html">CSVReader</a>(<span class="stringliteral">&quot;/home/aldo/Escritorio/Datos-2/T01/T01-Server/Grafo.txt&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QTcpSocket *mSocket;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif // SERVER_H</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QString respuesta=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> compVertice;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classCSVReader.html">CSVReader</a> *reader=<span class="keyword">new</span> <a class="code" href="classCSVReader.html">CSVReader</a>(<span class="stringliteral">&quot;/home/aldo/Escritorio/Datos-2/T01/T01-Server/Grafo.txt&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QTcpSocket *mSocket;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // SERVER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="acsvreader_8h_html"><div class="ttname"><a href="csvreader_8h.html">csvreader.h</a></div></div>
 <div class="ttc" id="aclassCSVReader_html"><div class="ttname"><a href="classCSVReader.html">CSVReader</a></div><div class="ttdoc">The CSVReader class @title Clase del CSVReader.</div><div class="ttdef"><b>Definition:</b> <a href="csvreader_8h_source.html#l00015">csvreader.h:15</a></div></div>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['server_63',['Server',['../classServer.html#aaf98d5194faee831c6340cc736b9b879',1,'Server']]],
-  ['setdatos_64',['setDatos',['../classGraph.html#a112d1dd712e75e755249dd3195a72191',1,'Graph']]]
+  ['widget_51',['Widget',['../classWidget.html#ace1aa23652eb4425355a81760b39fd37',1,'Widget::Widget(QWidget *parent=nullptr)'],['../classWidget.html#ace1aa23652eb4425355a81760b39fd37',1,'Widget::Widget(QWidget *parent=nullptr)']]]
 ];

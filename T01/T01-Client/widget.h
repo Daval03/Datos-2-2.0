@@ -13,7 +13,6 @@
 #include <string>
 #include <sstream>
 using namespace std;
-
 namespace Ui { class Widget; }
 class QTcpSocket;
 class Widget : public QWidget{
@@ -22,19 +21,45 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 private slots:
-//    void on_Conectar_clicked();
+    /**
+     * @brief on_Quitar_clicked, apagar el sistema
+     */
     void on_Quitar_clicked();
+    /**
+     * @brief on_Run_clicked, mandar el json al server
+     */
     void on_Run_clicked();
 private:
-    int *vect;
+    /**
+     * @brief mostrarDatos, muestra las rutas mas cortas
+     */
     void mostrarDatos();
+    /**
+     * @brief reset, resetea v,i y vertice
+     */
     void reset();
+    /**
+     * @brief V, numero de vertices
+     * @brief i, numero para imprimir las rutas
+     */
     int V,i;
+    /**
+     * @brief resp, la info del json
+     */
     QString resp;
+    /**
+     * @brief numRuta,ruta,vertice info de interfaz
+     */
     string numRuta=" es ";
     string ruta="ruta 0 -> ";
     string vertice="La cantidad de vertices que posee el grafo son: ";
+    /**
+     * @brief ui, la clase de interfaz
+     */
     Ui::Widget *ui;
+    /**
+     * @brief mSocket la clase del socket
+     */
     QTcpSocket *mSocket;
 };
 #endif // WIDGET_H

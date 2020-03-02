@@ -1,5 +1,9 @@
 #include "widget.h"
 #include "ui_widget.h"
+/**
+ * @brief Widget::Widget
+ * @param parent, un null_ptr
+ */
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget){
@@ -11,14 +15,3 @@ Widget::Widget(QWidget *parent)
 Widget::~Widget(){
     delete ui;
 }
-//void Widget::on_Iniciar_clicked(){//ui->Puerto->value()
-//    if (!mServer->listen(QHostAddress::Any,12345)){//nombre del server que se el pone
-//        QMessageBox::critical(this,"Error",mServer->errorString());
-//    }else{
-//        QMessageBox::information(this,"Server","Iniciando....");
-//    }
-//}
-
-//void Widget::on_Detener_clicked(){
-//    close();
-//}

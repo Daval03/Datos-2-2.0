@@ -1,17 +1,39 @@
 #include "graph.h"
+/**
+ * @brief Graph::Graph, contructor de la clase
+ * @param V, numero de vertices
+ */
 Graph::Graph(int V) {
     this->V=V;
     adj=new list<pair<int,int>>[V];
 }
+/**
+ * @brief Graph::setDatos, inicializa la clase
+ * @param V, numero de verices
+ */
 void Graph::setDatos(int V) {
     this->V=V;
     adj=new list<pair<int,int>>[V];
 }
+/**
+ * @brief Graph::Graph, contructor de la clase
+ */
 Graph::Graph() {}
+/**
+ * @brief Graph::addEdge, crea la union de verices
+ * @param u,vertice origen
+ * @param v,vertice destino
+ * @param w,peso arista
+ */
 void Graph::addEdge(int u, int v, int w) {
     adj[u].push_back(make_pair(v,w));
     adj[v].push_back(make_pair(u,w));
 }
+/**
+ * @brief Graph::Dijkstra, calcula las rutas mas cortas
+ * @param src, vertice
+ * @return las rutas mas cortas
+ */
 string Graph::Dijkstra(int src) {
     set< pair<int, int> > setds;
     vector<int> dist(V, INF);

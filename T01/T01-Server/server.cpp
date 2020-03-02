@@ -1,5 +1,9 @@
 #include "server.h"
-
+/*!
+ * \brief Server::Server
+ * \param un null_puntr, que se vuleve un QTcpServer
+ * \return nada, solo carga el JSon, con el resultado del algoritmo
+ */
 Server::Server(QObject *parent) : QTcpServer(parent){
     mSocket=nullptr;
     connect(this, &Server::newConnection,[&](){

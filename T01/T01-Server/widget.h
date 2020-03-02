@@ -12,11 +12,12 @@ class Widget : public QWidget{
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-
-private slots:
-//    void on_Iniciar_clicked();
-//    void on_Detener_clicked();
 private:
+    /**
+     * @brief mServer, la clase server
+     * @brief mSocket, el socket conectado con el cliente
+     * @brief ui, la clase del la interfaz
+     */
     Server *mServer;
     QTcpSocket *mSocket;
     Ui::Widget *ui;

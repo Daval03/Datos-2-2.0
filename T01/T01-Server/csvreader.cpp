@@ -1,7 +1,14 @@
 #include "csvreader.h"
+/**
+ * @brief CSVReader::CSVReader, el constructor de la clase
+ * @param filename,la ruta del txt
+ */
 CSVReader::CSVReader(string filename) {
     this->fileName=filename;
 }
+/**
+ * @brief CSVReader::cargarGrafo, me carga los datos del txt al grafo
+ */
 void CSVReader::cargarGrafo(){
     ifstream file(fileName);
     string line = "";
@@ -26,6 +33,9 @@ void CSVReader::cargarGrafo(){
         }i++;
     }file.close();
 }
+/**
+ * @brief CSVReader::descargarGrafo, desparametriza los valores del grafo
+ */
 void CSVReader::descargarGrafo(){
     this->grafo->V=0;
     this->grafo->respuesta="";

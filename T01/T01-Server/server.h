@@ -10,16 +10,36 @@
 #include <QJsonObject>
 #include <QJsonArray>
 using namespace std;
+/**
+ * @file server.h
+ * @version 2.0
+ * @title Server de la aplicacion
+ * @date 1/3/20
+ */
 class QTcpSocket;
+/**
+ * @brief The Server class
+ */
 class Server : public QTcpServer{
     Q_OBJECT
 public:
+    /**
+     * @brief Server
+     * @param parent
+     */
     explicit Server(QObject *parent = nullptr);
-    void envia(const QString &mensaje);
 private:
+    /**
+     * @brief reader, me genera el grafo y el algoritmo
+     * @param La ruta del txt, donde esta el grafo
+     * @return las rutas mas cortas
+     */
     CSVReader *reader=new CSVReader("/home/aldo/Escritorio/Datos-2/T01/T01-Server/Grafo.txt");
+    /**
+     * @brief mSocket
+     * @return jSON del server
+     */
     QTcpSocket *mSocket;
-    bool ExistenciaED(QString nombre);
 };
 
 #endif // SERVER_H

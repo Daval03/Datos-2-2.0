@@ -1,5 +1,9 @@
 #include "widget.h"
 #include "ui_widget.h"
+/**
+ * @brief Widget::Widget lee el socket, y muestra la info
+ * @param parent, un null_prt
+ */
 Widget::Widget(QWidget *parent)
     : QWidget(parent),ui(new Ui::Widget){
     ui->setupUi(this);
@@ -17,12 +21,21 @@ Widget::Widget(QWidget *parent)
         reset();
     });
 }
+/**
+ * @brief Widget::~Widget destruye la ui
+ */
 Widget::~Widget(){
     delete ui;
 }
+/**
+ * @brief Widget::on_Quitar_clicked boton para cerrar el cliente
+ */
 void Widget::on_Quitar_clicked(){
     close();
 }
+/**
+ * @brief Widget::on_Run_clicked boton para cargar el json y cargarlo en el socket
+ */
 void Widget::on_Run_clicked(){
     QJsonObject Lista{
         {"Started-Flag","True"}};
@@ -32,11 +45,17 @@ void Widget::on_Run_clicked(){
     qDebug()<<jsDoc;
     mSocket->write(jsString.toLatin1());
 }
+/**
+ * @brief Widget::reset resetea los valores de vertice,V y i
+ */
 void Widget::reset(){
     this->vertice="La cantidad de vertices que posee el grafo son: ";
     this->V=0;
     this->i=0;
 }
+/**
+ * @brief Widget::mostrarDatos muestra las rutas mas cortas en la ui
+ */
 void Widget::mostrarDatos(){
     ui->cuadro->addItem(QString::fromStdString(vertice));
     stringstream ss(resp.toStdString());
